@@ -1,3 +1,4 @@
+using aspectcore_framework_overview.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspectcore_framework_overview.Controllers
@@ -8,8 +9,8 @@ namespace aspectcore_framework_overview.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -19,7 +20,8 @@ namespace aspectcore_framework_overview.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [Performance]
+        public virtual IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -28,6 +30,6 @@ namespace aspectcore_framework_overview.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
-        }
+        }        
     }
 }

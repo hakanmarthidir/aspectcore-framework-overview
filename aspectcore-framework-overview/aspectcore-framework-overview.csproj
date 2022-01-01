@@ -7,4 +7,10 @@
     <RootNamespace>aspectcore_framework_overview</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Abstractions" Version="2.2.0" />
+    <PackageReference Include="AspectCore.Core" Version="2.2.0" />
+    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="2.2.0" />
+  </ItemGroup>
+
 </Project>

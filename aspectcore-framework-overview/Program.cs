@@ -1,8 +1,13 @@
+
+
+using AspectCore.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Host.UseServiceProviderFactory(new DynamicProxyServiceProviderFactory());
 
-builder.Services.AddControllers();
+// Add services to the container.
+builder.Services.AddControllers().AddControllersAsServices();
 
 var app = builder.Build();
 
